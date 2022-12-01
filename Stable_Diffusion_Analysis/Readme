@@ -1,0 +1,13 @@
+Readme:
+=====================
+ - Generate images with your model based on the motion prompts
+ - Then calculate FID using the calculateFID.py, you can use the same code to evaluate faces too. Change the directory as needed.
+ - Put number of images in num_imgs, I will say put 5000 for faces and 5000 for motion too, as motion doesn't take more time as I though it would.
+ 
+  - In the "run" variable, put 1 for motion and 10 for faces.
+  	The reason for putting 10 in faces is , we will do 10 different runs to calculate mean std dev of FID scores, so random shuffling should be on that time. But random shuffling is/should be off for motion category in the for loop because there are other objects in the motion images too such as ball,skateboard,badminton, etc. It's not just faces, so wrong comparison will give worst FID, than without shuffling. But uncomment it during evaluation of faces. So no point to run 10 times, it will give same FID, unless we run different set of 1k images in different iteration, which we will skip for now.
+  	
+  	- For running FID for motion, use https://github.com/XiaonaZhou/Text_to_Image_analysis/tree/main/lowres_extracted_motion_images_from_COCO/LowRes this folder in the github. It contains motion images downsampled to 256 x 256. During running the FID, it will also downsample your generated image to 256 x 256.
+  	
+   - I and Xiaona are still in favor of keeping motion in quantitative analysys just to compare among models, even though it's not as effective as faces.
+  	
