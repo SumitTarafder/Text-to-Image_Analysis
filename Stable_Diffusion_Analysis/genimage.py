@@ -16,7 +16,7 @@ def image_grid(imgs, rows, cols):
         grid.paste(img, box=(i%cols*w, i//cols*h))
     return grid
     
-YOUR_TOKEN="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"
+YOUR_TOKEN=""
 #pipe = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4", use_auth_token=YOUR_TOKEN,revision="fp16", torch_dtype=torch.float16).to("cuda")
 
 pipe = StableDiffusionPipeline.from_pretrained(
